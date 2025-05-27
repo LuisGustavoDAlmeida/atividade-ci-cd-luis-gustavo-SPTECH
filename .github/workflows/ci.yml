@@ -34,3 +34,4 @@ jobs:
 
       - name: Test with maven
         run: mvn test
+        working-directory: ./Final Fantasy Web Scraping/
