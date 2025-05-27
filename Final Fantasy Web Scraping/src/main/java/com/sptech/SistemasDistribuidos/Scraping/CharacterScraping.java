@@ -157,9 +157,7 @@ public class CharacterScraping {
                     }
                     break;
                 case "enemy appearances":
-                    // Verifica se o valor é apenas "Boss" ou se há outros valores
                     if (!value.equalsIgnoreCase("Boss")) {
-                        // Se houver mais do que só "Boss", ou se não for "Boss"
                         Elements enemyLinks = item.select(".pi-data-value li a");
                         if (enemyLinks.isEmpty()) { // Se não tiver links, tenta splitar o texto
                             splitAppearances(value).forEach(data.getAparicoes()::add);
@@ -352,12 +350,12 @@ public class CharacterScraping {
         }
         List<String> actors = new ArrayList<>();
         String cleanedHtml = htmlText.replace("<sup>", "").replace("</sup>", "")
-                .replace("<br>", "|||").trim(); // Usar um marcador improvável
+                .replace("<br>", "|||").trim();
 
         String[] parts = cleanedHtml.split("\\|\\|\\|");
 
         for (String part : parts) {
-            String actorName = Jsoup.parse(part).text().trim(); // Limpa qualquer HTML restante
+            String actorName = Jsoup.parse(part).text().trim();
             if (!actorName.isEmpty()) {
                 actors.add(actorName);
             }
